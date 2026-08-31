@@ -35,7 +35,6 @@ export default function CalendarView() {
         className="fc"
         plugins={[dayGridPlugin, listPlugin, classicThemePlugin]}
         initialView={calendarView}
-        initialDate="2026-08-01"
         locale={koLocale}
         initialEvents={calendarEvents}
         headerToolbar={{
