@@ -29,7 +29,7 @@ export default function SiteHeader() {
           <ul className="nav-list">
             {navigation.map((item) => (
               <li key={item.label}>
-                <a href={`${item.href}/`}>
+                <a href={`${item.href}`}>
                   <span>{item.label}</span>
                 </a>
               </li>
