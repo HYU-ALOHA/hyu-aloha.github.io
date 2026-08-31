@@ -1,5 +1,5 @@
 export type LectureMaterial = {
-  pdfUrl: string;
+  pdfUrl?: string | null;
   description: string;
 };
 
@@ -13,9 +13,9 @@ export const lectureWeeks: LectureWeek[] = [
   {
     week: 1,
     materials: [
-      { pdfUrl: "#", description: "집합과 맵, 우선순위 큐" },
-      { pdfUrl: "#", description: "투 포인터" },
-      { pdfUrl: "#", description: "" },
+      { pdfUrl: "", description: "집합과 맵, 우선순위 큐" },
+      { pdfUrl: "", description: "투 포인터" },
+      { pdfUrl: "", description: "" },
     ],
   }
 ];

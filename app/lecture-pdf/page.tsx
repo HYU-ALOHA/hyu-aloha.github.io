@@ -25,6 +25,21 @@ function PdfIcon() {
   );
 }
 
+function PdfCardContent({ level, isAvailable }: {
+  level: string;
+  isAvailable: boolean;
+}) {
+  return (
+    <>
+      <PdfIcon />
+      <h3>{level}</h3>
+      <span className="download-label">
+        {isAvailable ? "다운로드" : "준비 중"}
+      </span>
+    </>
+  );
+}
+
 export default function LecturePdfPage() {
   return (
     <main className="site-shell lecture-page">
@@ -40,21 +55,27 @@ export default function LecturePdfPage() {
             <div className="lecture-grid">
               {lecture.materials.map((material, materialIndex) => {
                 const level = lectureLevels[materialIndex];
+                const pdfUrl = material.pdfUrl?.trim();
+                const isAvailable = Boolean(pdfUrl && !pdfUrl.startsWith("#"));
 
                 return (
-                <article className="lecture-item" key={`${lecture.week}-${level}`}>
-                  <a
-                    className="pdf-card"
-                    href={material.pdfUrl}
-                    download
-                    aria-label={`${lecture.week}주차 ${level} ${material.description} PDF 다운로드`}
-                  >
-                    <PdfIcon />
-                    <h3>{level}</h3>
-                    <span className="download-label">다운로드</span>
-                  </a>
-                  <p>{material.description}</p>
-                </article>
+                  <article className="lecture-item" key={`${lecture.week}-${level}`}>
+                    {isAvailable ? (
+                      <a
+                        className="pdf-card"
+                        href={pdfUrl}
+                        download
+                        aria-label={`${lecture.week}주차 ${level} ${material.description} PDF 다운로드`}
+                      >
+                        <PdfCardContent level={level} isAvailable />
+                      </a>
+                    ) : (
+                      <div className="pdf-card is-disabled" aria-disabled="true">
+                        <PdfCardContent level={level} isAvailable={false} />
+                      </div>
+                    )}
+                    <p>{material.description}</p>
+                  </article>
                 );
               })}
             </div>

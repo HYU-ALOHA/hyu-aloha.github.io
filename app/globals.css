@@ -268,20 +268,20 @@ a {
   transition: color 220ms ease, opacity 220ms ease, transform 220ms ease;
 }
 
-.pdf-card:hover::after,
-.pdf-card:focus-visible::after {
+.pdf-card:not(.is-disabled):hover::after,
+.pdf-card:not(.is-disabled):focus-visible::after {
   transform: scaleX(1);
 }
 
-.pdf-card:hover h3,
-.pdf-card:focus-visible h3,
-.pdf-card:hover .download-label,
-.pdf-card:focus-visible .download-label {
+.pdf-card:not(.is-disabled):hover h3,
+.pdf-card:not(.is-disabled):focus-visible h3,
+.pdf-card:not(.is-disabled):hover .download-label,
+.pdf-card:not(.is-disabled):focus-visible .download-label {
   color: #ffffff;
 }
 
-.pdf-card:hover .download-label,
-.pdf-card:focus-visible .download-label {
+.pdf-card:not(.is-disabled):hover .download-label,
+.pdf-card:not(.is-disabled):focus-visible .download-label {
   opacity: 1;
   transform: translateX(0);
 }
@@ -289,6 +289,16 @@ a {
 .pdf-card:focus-visible {
   outline: 3px solid #171717;
   outline-offset: 4px;
+}
+
+.pdf-card.is-disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.pdf-card.is-disabled .download-label {
+  opacity: 1;
+  transform: translateX(0);
 }
 
 .lecture-item > p {
