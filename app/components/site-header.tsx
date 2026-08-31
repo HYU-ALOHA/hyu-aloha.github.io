@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 
 const LOGO_PATH = "/brand/aloha.png";
 
@@ -14,7 +13,7 @@ export default function SiteHeader() {
   return (
     <header className="gnb">
       <div className="gnb-inner">
-        <Link className="wordmark" href="/" aria-label="ALOHA 홈">
+        <a className="wordmark" href="/" aria-label="ALOHA 홈">
           <Image
             className="wordmark-image"
             src={LOGO_PATH}
@@ -24,15 +23,15 @@ export default function SiteHeader() {
             priority
           />
           <span className="wordmark-text">ALOHA</span>
-        </Link>
+        </a>
 
         <nav aria-label="주요 메뉴">
           <ul className="nav-list">
             {navigation.map((item) => (
               <li key={item.label}>
-                <Link href={item.href} prefetch={item.href === "/calendar" ? true : null}>
+                <a href={`${item.href}/`}>
                   <span>{item.label}</span>
-                </Link>
+                </a>
               </li>
             ))}
           </ul>
