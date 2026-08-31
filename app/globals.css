@@ -1,26 +1,680 @@
+@import "pretendard/dist/web/variable/pretendardvariable.css";
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfdfc;
+  --foreground: #090909;
+  --line: #e7e7e3;
+  --accent: #eee9f7;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+* {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
 }
 
 body {
+  margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Pretendard Variable", Pretendard, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.site-shell {
+  min-height: 100svh;
+  background: radial-gradient(
+      circle at 50% 43%,
+      rgb(248 247 243 / 0.62),
+      transparent 34%
+    ),
+    var(--background);
+}
+
+.gnb {
+  height: 150px;
+  background: rgb(253 253 252 / 0.94);
+  border-bottom: 1px solid var(--line);
+}
+
+.gnb-inner {
+  display: flex;
+  width: min(1620px, calc(100% - 96px));
+  height: 100%;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.wordmark-image {
+  width: 82px;
+  height: 82px;
+  object-fit: contain;
+}
+
+.wordmark-text {
+  color: transparent;
+  background-image: linear-gradient(#5f2cc6, #5f2cc6),
+    linear-gradient(var(--foreground), var(--foreground));
+  background-position: left, left;
+  background-size: 0% 100%, 100% 100%;
+  background-repeat: no-repeat;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: clamp(2.5rem, 3.25vw, 3.7rem);
+  font-weight: 900;
+  line-height: 1;
+  transition: background-size 420ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.wordmark:hover .wordmark-text,
+.wordmark:focus-visible .wordmark-text {
+  background-size: 100% 100%, 100% 100%;
+}
+
+.nav-list {
+  display: flex;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+  list-style: none;
+}
+
+.nav-list a {
+  display: flex;
+  min-width: 220px;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 0 30px;
+  font-size: clamp(1.55rem, 2vw, 2.35rem);
+  font-weight: 650;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+  transition: color 260ms ease, text-decoration-color 260ms ease;
+}
+
+.nav-list a span {
+  transition: transform 320ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.nav-list a:hover span,
+.nav-list a:focus-visible span {
+  transform: translateY(-3px);
+}
+
+.hero {
+  display: grid;
+  min-height: calc(100svh - 150px);
+  place-items: center;
+  padding: 40px 48px 12vh;
+  text-align: center;
+}
+
+.hero-copy {
+  transform: translateY(-2px);
+}
+
+.eyebrow {
+  margin: 0 0 29px;
+  color: #8a8a84;
+  font-size: 0.75rem;
+  font-weight: 650;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(3rem, 4.65vw, 5.35rem);
+  font-weight: 800;
+  line-height: 1.14;
+  word-break: keep-all;
+}
+
+.highlight {
+  display: inline-block;
+  margin: 0 0.08em 0 0.15em;
+  padding: 0 0.07em 0.015em;
+  background: linear-gradient(
+    transparent 13%,
+    var(--accent) 13%,
+    var(--accent) 87%,
+    transparent 87%
+  );
+  background-position: left;
+  background-size: 0% 100%;
+  background-repeat: no-repeat;
+  font-weight: 900;
+  animation: highlight-reveal 850ms cubic-bezier(0.22, 1, 0.36, 1) 250ms forwards;
+}
+
+@keyframes highlight-reveal {
+  to {
+    background-size: 100% 100%;
+  }
+}
+
+.lecture-page {
+  background: var(--background);
+}
+
+.lecture-content {
+  width: min(1000px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 132px 0 170px;
+}
+
+.lecture-week + .lecture-week {
+  margin-top: 72px;
+}
+
+.lecture-week h2 {
+  margin: 0 0 22px;
+  font-size: clamp(2.3rem, 3vw, 3rem);
+  font-weight: 850;
+  line-height: 1;
+}
+
+.lecture-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 36px;
+}
+
+.lecture-item {
+  min-width: 0;
+}
+
+.pdf-card {
+  position: relative;
+  display: flex;
+  height: 104px;
+  align-items: center;
+  gap: 22px;
+  padding: 3px 30px 3px 28px;
+  background: #6531d5;
+  clip-path: polygon(30px 0, 100% 0, 100% 100%, 0 100%, 0 30px);
+}
+
+.pdf-card::before {
+  position: absolute;
+  inset: 3px;
+  background: var(--background);
+  clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%, 0 28px);
+  content: "";
+}
+
+.pdf-card::after {
+  position: absolute;
+  inset: 3px;
+  background: #6531d5;
+  clip-path: polygon(28px 0, 100% 0, 100% 100%, 0 100%, 0 28px);
+  content: "";
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 360ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.pdf-icon,
+.pdf-card h3,
+.download-label {
+  position: relative;
+  z-index: 1;
+}
+
+.pdf-icon {
+  width: 38px;
+  height: 42px;
+  flex: 0 0 auto;
+  color: #cb4b58;
+}
+
+.pdf-card h3 {
+  margin: 0;
+  font-size: clamp(1.65rem, 2.2vw, 2rem);
+  font-weight: 600;
+  transition: color 220ms ease;
+}
+
+.download-label {
+  margin-left: auto;
+  color: #77736f;
+  font-size: 0.76rem;
+  font-weight: 650;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: color 220ms ease, opacity 220ms ease, transform 220ms ease;
+}
+
+.pdf-card:hover::after,
+.pdf-card:focus-visible::after {
+  transform: scaleX(1);
+}
+
+.pdf-card:hover h3,
+.pdf-card:focus-visible h3,
+.pdf-card:hover .download-label,
+.pdf-card:focus-visible .download-label {
+  color: #ffffff;
+}
+
+.pdf-card:hover .download-label,
+.pdf-card:focus-visible .download-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.pdf-card:focus-visible {
+  outline: 3px solid #171717;
+  outline-offset: 4px;
+}
+
+.lecture-item > p {
+  margin: 10px 0 0;
+  color: #454541;
+  font-size: 1rem;
+}
+
+.calendar-page {
+  background: var(--background);
+}
+
+.calendar-content {
+  width: min(1000px, calc(100% - 96px));
+  margin: 0 auto;
+  padding: 86px 0 130px;
+}
+
+.calendar-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 40px;
+  margin-bottom: 34px;
+}
+
+.calendar-eyebrow {
+  margin: 0 0 10px;
+  color: #7e7b76;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.calendar-heading h1 {
+  margin: 0;
+  font-size: clamp(2.8rem, 4vw, 4.5rem);
+  font-weight: 850;
+  line-height: 1;
+}
+
+.calendar-library {
+  min-width: 860px;
+  overflow-x: auto;
+}
+
+.calendar-library .fc {
+  font-family: inherit;
+  --fc-border-color: #deded9;
+  --fc-page-bg-color: #ffffff;
+  --fc-neutral-bg-color: #f7f7f4;
+  --fc-today-bg-color: #f4f1fa;
+}
+
+.calendar-library .fc .fc-toolbar {
+  display: grid;
+  min-height: 40px;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: start;
+  margin-bottom: 22px;
+}
+
+.calendar-library .fc .fc-toolbar-chunk:first-child {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+  justify-self: start;
+}
+
+.calendar-library .fc .fc-toolbar-chunk:nth-child(2) {
+  justify-self: center;
+}
+
+.calendar-library .fc .fc-toolbar-chunk:last-child {
+  justify-self: end;
+}
+
+.calendar-library .fc .fc-toolbar-chunk:first-child > * {
+  margin: 0;
+}
+
+.calendar-library .fc .fc-toolbar-title {
+  font-size: 1.7rem;
+  font-weight: 800;
+}
+
+.calendar-library .fc .fc-button {
+  border-color: #d7d7d2;
+  background: #ffffff;
+  color: #242421;
+  font-family: inherit;
+  font-weight: 650;
+  box-shadow: none;
+}
+
+.calendar-library .fc .fc-button:hover,
+.calendar-library .fc .fc-button:focus-visible {
+  border-color: #242421;
+  background: #f4f4f1;
+  color: #111111;
+}
+
+.calendar-library .fc .fc-button:disabled {
+  border-color: #e2e2dd;
+  background: #f5f5f2;
+  color: #999791;
+  opacity: 1;
+}
+
+.calendar-library .fc .fc-col-header-cell {
+  background: #f7f7f4;
+}
+
+.calendar-library .fc .fc-col-header-cell.fc-day-sun,
+.calendar-library .fc .fc-daygrid-day.fc-day-sun {
+  background: #fff0f0;
+}
+
+.calendar-library .fc .fc-col-header-cell.fc-day-sat,
+.calendar-library .fc .fc-daygrid-day.fc-day-sat {
+  background: #eff4ff;
+}
+
+.calendar-library .fc .aloha-sunday {
+  background: #fff0f0 !important;
+}
+
+.calendar-library .fc .aloha-saturday {
+  background: #eff4ff !important;
+}
+
+.calendar-library .fc .fc-col-header-cell-cushion {
+  padding: 15px 8px;
+  color: #686662;
+  font-size: 0.86rem;
+  font-weight: 650;
+}
+
+.calendar-library .fc .fc-day-sun .fc-col-header-cell-cushion,
+.calendar-library .fc .fc-day-sun .fc-daygrid-day-number {
+  color: #ca4e5a;
+}
+
+.calendar-library .fc .fc-day-sat .fc-col-header-cell-cushion,
+.calendar-library .fc .fc-day-sat .fc-daygrid-day-number {
+  color: #4d65af;
+}
+
+.calendar-library .fc .fc-daygrid-day-frame {
+  min-height: 126px;
+  padding: 7px;
+}
+
+.calendar-library .fc .fc-daygrid-day-number {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  place-items: center;
+  color: #222220;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.calendar-library .fc .fc-day-other .fc-daygrid-day-number {
+  color: #b9b8b2;
+}
+
+.calendar-library .fc .fc-day-today .fc-daygrid-day-number {
+  border-radius: 50%;
+  background: #171717;
+  color: #ffffff;
+}
+
+.calendar-library .fc .fc-event {
+  margin-top: 4px;
+  padding: 5px 7px;
+  border: 0;
+  border-left: 3px solid currentColor;
+  border-radius: 0;
+  font-size: 0.78rem;
+  font-weight: 650;
+  line-height: 1.35;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: keep-all;
+}
+
+.calendar-library .fc .fc-event-main,
+.calendar-library .fc .fc-event-main-frame,
+.calendar-library .fc .fc-event-title-container,
+.calendar-library .fc .fc-event-title {
+  overflow: visible;
+  white-space: normal;
+}
+
+.calendar-library .fc .fc-classic-TZ4 {
+  white-space: normal;
+}
+
+.calendar-library .fc .event-class,
+.calendar-library .fc .event-contest,
+.calendar-library .fc .event-club {
+  background: #5f2cc6;
+  color: #ffffff;
+}
+
+@media (max-width: 1200px) {
+  .gnb-inner {
+    width: calc(100% - 56px);
+  }
+
+  .nav-list a {
+    min-width: auto;
+    padding: 0 25px;
+  }
+
+  .lecture-content {
+    width: calc(100% - 56px);
+  }
+
+  .lecture-grid {
+    gap: 24px;
+  }
+
+  .calendar-content {
+    width: calc(100% - 56px);
+  }
+}
+
+@media (max-width: 820px) {
+  .gnb {
+    height: auto;
+  }
+
+  .gnb-inner {
+    width: 100%;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .wordmark {
+    padding: 28px 24px 22px;
+    gap: 13px;
+  }
+
+  .wordmark-image {
+    width: 54px;
+    height: 54px;
+  }
+
+  .wordmark-text {
+    font-size: 2.5rem;
+  }
+
+  .nav-list {
+    overflow-x: auto;
+    border-top: 1px solid var(--line);
+  }
+
+  .nav-list li {
+    flex: 1 0 auto;
+  }
+
+  .nav-list a {
+    min-width: 108px;
+    padding: 18px 17px;
+    font-size: 1.05rem;
+  }
+
+  .hero {
+    min-height: calc(100svh - 157px);
+    padding: 48px 22px 12vh;
+  }
+
+  .hero h1 {
+    max-width: 680px;
+    font-size: clamp(2.65rem, 9.5vw, 4.3rem);
+    line-height: 1.22;
+  }
+
+  .highlight {
+    margin-left: 0.1em;
+  }
+
+  .lecture-content {
+    width: calc(100% - 48px);
+    padding: 76px 0 110px;
+  }
+
+  .lecture-week + .lecture-week {
+    margin-top: 58px;
+  }
+
+  .lecture-grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .pdf-card {
+    height: 98px;
+  }
+
+  .calendar-content {
+    width: calc(100% - 48px);
+    padding: 68px 0 100px;
+  }
+
+  .calendar-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .calendar-library .fc .fc-daygrid-day-frame {
+    min-height: 110px;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .eyebrow {
+    max-width: 250px;
+    margin-right: auto;
+    margin-left: auto;
+    line-height: 1.6;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.35rem, 11.5vw, 3.2rem);
+  }
+
+  .lecture-content {
+    width: calc(100% - 36px);
+    padding-top: 58px;
+  }
+
+  .lecture-week h2 {
+    margin-bottom: 18px;
+    font-size: 2.15rem;
+  }
+
+  .pdf-card {
+    gap: 17px;
+    padding-right: 22px;
+    padding-left: 23px;
+  }
+
+  .calendar-content {
+    width: calc(100% - 36px);
+    padding-top: 54px;
+  }
+
+  .calendar-heading {
+    margin-bottom: 26px;
+  }
+
+  .calendar-heading h1 {
+    font-size: 2.75rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .nav-list a {
+    transition: none;
+  }
+
+  .nav-list a span {
+    transition: none;
+  }
+
+  .wordmark-text {
+    transition: none;
+  }
+
+  .highlight {
+    background-size: 100% 100%;
+    animation: none;
+  }
+
+  .pdf-card::after,
+  .pdf-card h3,
+  .download-label {
+    transition: none;
+  }
 }
