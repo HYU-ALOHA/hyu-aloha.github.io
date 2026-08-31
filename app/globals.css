@@ -650,6 +650,29 @@ a {
   }
 }
 
+@media (max-width: 640px) {
+  .calendar-library {
+    min-width: 0;
+    overflow-x: visible;
+  }
+
+  .calendar-library .fc {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .calendar-view-listMonth .fc {
+    font-size: 0.9rem;
+  }
+
+  .calendar-view-listMonth .event-class,
+  .calendar-view-listMonth .event-contest,
+  .calendar-view-listMonth .event-club {
+    background: transparent;
+    color: #20201e;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

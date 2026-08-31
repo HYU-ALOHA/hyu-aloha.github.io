@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const LOGO_PATH = "/brand/aloha.png";
 
@@ -13,7 +14,7 @@ export default function SiteHeader() {
   return (
     <header className="gnb">
       <div className="gnb-inner">
-        <a className="wordmark" href="/" aria-label="ALOHA 홈">
+        <Link className="wordmark" href="/" aria-label="ALOHA 홈">
           <Image
             className="wordmark-image"
             src={LOGO_PATH}
@@ -23,7 +24,7 @@ export default function SiteHeader() {
             priority
           />
           <span className="wordmark-text">ALOHA</span>
-        </a>
+        </Link>
 
         <nav aria-label="주요 메뉴">
           <ul className="nav-list">
