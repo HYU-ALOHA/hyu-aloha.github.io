@@ -4,11 +4,8 @@ import Link from "next/link";
 const LOGO_PATH = "/brand/aloha.png";
 
 const navigation = [
-  { label: "캘린더", href: "/calendar" },
   { label: "강의자료", href: "/lecture-pdf" },
 ];
-
-/* { label: "역대문제", href: "/#역대문제" }, */
 
 export default function SiteHeader() {
   return (

@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import SiteHeader from "../components/site-header";
-import CalendarView from "./calendar-view";
 
 export const metadata: Metadata = {
   title: "캘린더 | ALOHA",
@@ -20,8 +19,6 @@ export default function CalendarPage() {
           </div>
 
         </div>
-
-        <CalendarView />
       </section>
     </main>
   );

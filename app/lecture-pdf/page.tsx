@@ -42,46 +42,48 @@ function PdfCardContent({ level, isAvailable }: {
 
 export default function LecturePdfPage() {
   return (
-    <main className="site-shell lecture-page">
+    <>
       <SiteHeader />
+      <main className="site-shell lecture-page">
 
-      <div className="lecture-content">
-        <h1 className="sr-only">강의자료</h1>
+        <div className="lecture-content">
+          <h1>강의자료</h1>
 
-        {lectureWeeks.map((lecture) => (
-          <section className="lecture-week" key={lecture.week}>
-            <h2>{lecture.week}주차</h2>
+          {lectureWeeks.map((lecture) => (
+            <section className="lecture-week" key={lecture.week}>
+              <h2>{lecture.week}주차</h2>
 
-            <div className="lecture-grid">
-              {lecture.materials.map((material, materialIndex) => {
-                const level = lectureLevels[materialIndex];
-                const pdfUrl = material.pdfUrl?.trim();
-                const isAvailable = Boolean(pdfUrl && !pdfUrl.startsWith("#"));
+              <div className="lecture-grid">
+                {lecture.materials.map((material, materialIndex) => {
+                  const level = lectureLevels[materialIndex];
+                  const pdfUrl = material.pdfUrl?.trim();
+                  const isAvailable = Boolean(pdfUrl && !pdfUrl.startsWith("#"));
 
-                return (
-                  <article className="lecture-item" key={`${lecture.week}-${level}`}>
-                    {isAvailable ? (
-                      <a
-                        className="pdf-card"
-                        href={pdfUrl}
-                        download
-                        aria-label={`${lecture.week}주차 ${level} ${material.description} PDF 다운로드`}
-                      >
-                        <PdfCardContent level={level} isAvailable />
-                      </a>
-                    ) : (
-                      <div className="pdf-card is-disabled" aria-disabled="true">
-                        <PdfCardContent level={level} isAvailable={false} />
-                      </div>
-                    )}
-                    <p>{material.description}</p>
-                  </article>
-                );
-              })}
-            </div>
-          </section>
-        ))}
-      </div>
-    </main>
+                  return (
+                    <article className="lecture-item" key={`${lecture.week}-${level}`}>
+                      {isAvailable ? (
+                        <a
+                          className="pdf-card"
+                          href={pdfUrl}
+                          download
+                          aria-label={`${lecture.week}주차 ${level} ${material.description} PDF 다운로드`}
+                        >
+                          <PdfCardContent level={level} isAvailable />
+                        </a>
+                      ) : (
+                        <div className="pdf-card is-disabled" aria-disabled="true">
+                          <PdfCardContent level={level} isAvailable={false} />
+                        </div>
+                      )}
+                      <p>{material.description}</p>
+                    </article>
+                  );
+                })}
+              </div>
+            </section>
+          ))}
+        </div>
+      </main>
+    </>
   );
 }
