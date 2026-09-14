@@ -14,7 +14,7 @@ export const lectureWeeks: LectureWeek[] = [
     week: 1,
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 1주차 - 집합과 맵, 우선순위 큐.pdf", description: "집합과 맵, 우선순위 큐" },
-      { pdfUrl: "", description: "투 포인터" },
+      { pdfUrl: "/pdfs/2026-2 중급반 1주차 (투 포인터) - 최종.pdf", description: "투 포인터" },
       { pdfUrl: "", description: "" },
     ],
   }
