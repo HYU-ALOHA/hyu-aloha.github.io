@@ -17,5 +17,13 @@ export const lectureWeeks: LectureWeek[] = [
       { pdfUrl: "/pdfs/2026-2 중급반 1주차 (투 포인터) - 최종.pdf", description: "투 포인터" },
       { pdfUrl: "", description: "" },
     ],
-  }
+  },
+  {
+    week: 2,
+    materials: [
+      { pdfUrl: "", description: "그리디 알고리즘" },
+      { pdfUrl: "", description: "분할 정복" },
+      { pdfUrl: "", description: "" },
+    ],
+  },
 ];
