@@ -23,7 +23,7 @@ export const lectureWeeks: LectureWeek[] = [
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 2주차 - 그리디 알고리즘.pdf", description: "그리디 알고리즘" },
       { pdfUrl: "/pdfs/2026-2 중급반 2주차 (분할 정복).pdf", description: "분할 정복" },
-      { pdfUrl: "", description: "" },
+      { pdfUrl: "/pdfs/2026-2 고급반 2주차 (센트로이드).pdf", description: "센트로이드" },
     ],
   },
 ];
