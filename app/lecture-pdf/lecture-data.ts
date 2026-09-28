@@ -31,7 +31,7 @@ export const lectureWeeks: LectureWeek[] = [
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 3주차 - 다이나믹 프로그래밍.pdf", description: "다이나믹 프로그래밍" },
       { pdfUrl: "", description: "분리 집합, 최소 스패닝 트리" },
-      { pdfUrl: "", description: "" },
+      { pdfUrl: "/pdfs/2026-2 고급반 3주차 (뽈모뽈모).pdf", description: "뽈모뽈모" },
     ],
   },
 ];
