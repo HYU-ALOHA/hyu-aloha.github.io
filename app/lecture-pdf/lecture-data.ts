@@ -34,4 +34,12 @@ export const lectureWeeks: LectureWeek[] = [
       { pdfUrl: "/pdfs/2026-2 고급반 3주차 (뽈모뽈모).pdf", description: "뽈모뽈모" },
     ],
   },
+  {
+    week: 4,
+    materials: [
+      { pdfUrl: "", description: "그래프 이론, DFS, BFS" },
+      { pdfUrl: "", description: "이분 탐색 심화" },
+      { pdfUrl: "", description: "" },
+    ],
+  },
 ];
