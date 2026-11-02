@@ -38,7 +38,7 @@ export const lectureWeeks: LectureWeek[] = [
     week: 4,
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 4주차 - 그래프 이론, DFS, BFS.pdf", description: "그래프 이론, DFS, BFS" },
-      { pdfUrl: "", description: "이분 탐색 심화" },
+      { pdfUrl: "/pdfs/2026-2 중급반 4주차 (이분 탐색).pdf", description: "이분 탐색 심화" },
       { pdfUrl: "/pdfs/Planar_Graph_Network_Flow.pdf", description: "Hawaiki 문제 풀이" },
     ],
   },
