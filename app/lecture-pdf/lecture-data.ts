@@ -42,4 +42,12 @@ export const lectureWeeks: LectureWeek[] = [
       { pdfUrl: "/pdfs/Planar_Graph_Network_Flow.pdf", description: "Hawaiki 문제 풀이" },
     ],
   },
+  {
+    week: 5,
+    materials: [
+      { pdfUrl: "/pdfs/2026-2 초급반 5주차 - 백트래킹.pdf", description: "백트래킹" },
+      { pdfUrl: "", description: "위상 정렬" },
+      { pdfUrl: "", description: "" },
+    ],
+  },
 ];
