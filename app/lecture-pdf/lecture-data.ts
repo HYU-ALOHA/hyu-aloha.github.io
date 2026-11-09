@@ -46,8 +46,8 @@ export const lectureWeeks: LectureWeek[] = [
     week: 5,
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 5주차 - 백트래킹.pdf", description: "백트래킹" },
-      { pdfUrl: "", description: "위상 정렬" },
-      { pdfUrl: "", description: "" },
+      { pdfUrl: "/pdfs/2026-2 중급반 5주차 (위상 정렬).pdf", description: "위상 정렬" },
+      { pdfUrl: "/pdfs/ICPC 전략.pdf", description: "ICPC 전략" },
     ],
   },
 ];
