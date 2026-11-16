@@ -54,7 +54,7 @@ export const lectureWeeks: LectureWeek[] = [
     week: 6,
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 6주차 - 다익스트라.pdf", description: "다익스트라" },
-      { pdfUrl: "", description: "다이나믹 프로그래밍 심화" },
+      { pdfUrl: "/pdfs/2026-2 중급반 6주차 (그리디 심화).pdf", description: "그리디 심화" },
       { pdfUrl: "", description: "" },
     ],
   },
