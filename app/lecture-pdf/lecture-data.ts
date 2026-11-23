@@ -59,7 +59,7 @@ export const lectureWeeks: LectureWeek[] = [
     ],
   },
   {
-    week: 6,
+    week: 7,
     materials: [
       { pdfUrl: "/pdfs/2026-2 초급반 7주차 - 분리 집합.pdf", description: "분리 집합" },
       { pdfUrl: "/pdfs/2026-2 중급반 7주차 (DP 심화).pdf", description: "DP 심화" },
